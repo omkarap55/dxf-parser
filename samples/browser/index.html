@@ -30,7 +30,7 @@
 			var readEventHandler = function (evt) {
 				if (evt.target.error == null) {
 					offset += evt.target.result.length;
-					console.log(`Old string end:${dxf.charAt(dxf.length-1)}`);
+					console.log(`Old string end:${dxf.charAt(dxf.length - 1)}`);
 					console.log(`New string Start:${evt.target.result.charAt(0)}`);
 					dxf = dxf + evt.target.result;
 					console.log(`Length of Dxf string is:${dxf.length}`)
@@ -40,8 +40,9 @@
 				}
 				if (offset >= fileSize) {
 					console.log("Done reading file");
+					outputElement.innerHTML = dxf;
 					dxfString = parser.parseSync(dxf);
-					outputElement.innerHTML = JSON.stringify(dxfString, null, 4);
+					// outputElement.innerHTML = JSON.stringify(dxfString, null, 4);
 					return;
 				}
 
